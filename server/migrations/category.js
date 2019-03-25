@@ -57,14 +57,14 @@ let transactions = () => {
                     provider: 'JEEP',
                     price: 849990,
                     rankin: 5,
-                    description: 'Mountain bike 27.5 "vesubio 27.5 v18',
+                    description: 'Mountain bike 27.5 vesubio 27.5 v18',
                     img: 'mb-1.jpeg'
                 },
                 {
                     provider: 'JEEP',
                     price: 849990,
                     rankin: 4,
-                    description: 'Mountain bike 27.5 "vesubio 27.5 v18',
+                    description: 'Mountain bike 27.5 vesubio 27.5 v18',
                     img: 'mb-2.jpeg'
                 },
                 {

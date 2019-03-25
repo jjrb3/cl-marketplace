@@ -2,6 +2,19 @@
 Api.Cart = {
     cart: [],
 
+    loadData: function() {
+
+        if (!(localStorage.getItem("cart") === null) && localStorage.getItem("cart") !== '{"data":[]}') {
+            let json = JSON.parse(localStorage.getItem("cart"));
+
+            for (let i in json) {
+                this.cart[json[i].id] =json[i];
+            }
+        }
+
+        this.updateButtonSeeProducts();
+    },
+
     addCart: function(id, description, price) {
 
         let container = `#quantity-${ id }`;
@@ -27,6 +40,20 @@ Api.Cart = {
         }
 
         this.updateButtonSeeProducts();
+
+        this.saveLocalStorage();
+    },
+
+    saveLocalStorage: function() {
+
+        var dataCart = [];
+
+        for (let id in this.cart) {
+
+            dataCart.push(this.cart[id]);
+        }
+
+        localStorage.setItem('cart', JSON.stringify(dataCart));
     },
 
     updateButtonSeeProducts: function() {
@@ -115,5 +142,6 @@ Api.Cart = {
 
         this.createTableCart();
         this.updateButtonSeeProducts();
+        this.saveLocalStorage();
     }
 };
