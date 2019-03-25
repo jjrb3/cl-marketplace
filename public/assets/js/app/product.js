@@ -78,7 +78,7 @@ Api.Product = {
                         <img src="assets/img/products/${ data.img }">
                         <br><br>
                         <h3>
-                            <span class="text-purple">${ Api.Product.moneyFormat(data.price) }</span>
+                            <span class="text-purple">${ Api.Tools.moneyFormat(data.price) }</span>
                         </h3>
                         <p>
                             ${ data.description }<br>
@@ -86,11 +86,13 @@ Api.Product = {
                         </p>
                         <div class="row">
                             <div class="col-lg-6">
-                                <input type="number" min="0" class="form-control" value="0">
+                                <input id="quantity-${ data._id }" type="number" min="0" class="form-control" value="0">
                             </div>
                             <div class="col-lg-6">
-                                <button type="button" class="btn btn-danger">
-                                    <i class="fa fa-cart-plus fa-fw"></i> Add to cart
+                                <button type="button" class="btn btn-danger"
+                                onclick="Api.Cart.addCart('${ data._id }', '${ data.description }', ${ data.price })">
+                                    <i class="fa fa-cart-plus fa-fw"></i> 
+                                    Add to cart
                                 </button>
                             </div>
                         </div>
@@ -119,7 +121,7 @@ Api.Product = {
 
                     $('#pd-title').html(json.product.provider);
                     $('#pd-provider').html(json.product.provider);
-                    $('#pd-price').html(Api.Product.moneyFormat(json.product.price));
+                    $('#pd-price').html(Api.Tools.moneyFormat(json.product.price));
                     $('#pd-description').html(json.product.description);
                     $('#pd-img').attr('src',`assets/img/products/${ json.product.img }`);
 
@@ -138,10 +140,5 @@ Api.Product = {
                 console.log(XMLHttpRequest.responseJSON.err.message)
             }
         });
-    },
-
-    moneyFormat: function(numero) {
-
-        return '$' + numero.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    },
+    }
 };

@@ -9,4 +9,9 @@ Api.Tools = {
 
         $(`#${ id }`).html(content)
     },
+
+    moneyFormat: function(numero) {
+
+        return '$' + numero.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    },
 };

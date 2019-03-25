@@ -24,10 +24,12 @@
 
 <script src="assets/js/app/category.js"></script>
 <script src="assets/js/app/product.js"></script>
+<script src="assets/js/app/cart.js"></script>
 <script>
     Api.securityLogin();
     Api.loadData();
     Api.Category.loadDataLeftSideBar();
     Api.Product.filterAllProducts();
+    Api.Cart.updateButtonSeeProducts();
 </script>
 {{> footer }}
