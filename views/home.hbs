@@ -1,115 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>Marketplacer - Condor Sport</title>
-    <!-- Bootstrap Core CSS -->
-    <link href="assets/ample-admin-theme/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Menu CSS -->
-    <link href="assets/ample-admin-theme/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link href="assets/ample-admin-theme/css/style.css" rel="stylesheet">
-    <link href="assets/ample-admin-theme/css/mystyle.css" rel="stylesheet">
-</head>
+{{> headadmin }}
 
 <body class="fix-header">
-<!-- ============================================================== -->
-<!-- Preloader -->
-<!-- ============================================================== -->
-<div class="preloader">
-    <svg class="circular" viewBox="25 25 50 50">
-        <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
-    </svg>
-</div>
-<!-- ============================================================== -->
-<!-- Wrapper -->
-<!-- ============================================================== -->
 <div id="wrapper">
-    <!-- ============================================================== -->
-    <!-- Topbar header - style you can find in pages.scss -->
-    <!-- ============================================================== -->
-    <nav class="navbar navbar-default navbar-static-top m-b-0">
-        <div class="navbar-header">
 
-            <ul class="nav navbar-top-links navbar-left pull-left">
-                <li>
-                    <a href="#" class="profile-pic">Marketplacer - Condor Sport </a>
-                </li>
-            </ul>
-            <ul class="nav navbar-top-links navbar-right pull-right">
-                <li>
-                    <form role="search" class="app-search hidden-sm hidden-xs m-r-10">
-                        <input type="text" placeholder="Search..." class="form-control"> <a href=""><i class="fa fa-search"></i></a> </form>
-                </li>
-                <li>
-                    <a class="profile-pic" href="#"> <i class="fa fa-user fa-1x"></i> <b class="hidden-xs">Welcome <span id="username"></span>!</b></a>
-                </li>
-                <li>
-                    <a class="profile-pic" href="#">|</a>
-                </li>
-                <li>
-                    <a class="profile-pic" href="#"> <i class="fa fa-sign-out fa-1x"></i> <b class="hidden-xs">Logout</b></a>
-                </li>
-                <li>
-                    <a class="profile-pic" href="#">&nbsp;</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-    <!-- End Top Navigation -->
-    <!-- ============================================================== -->
-    <!-- Left Sidebar - style you can find in sidebar.scss  -->
-    <!-- ============================================================== -->
-    <div class="navbar-default sidebar" role="navigation">
-        <div class="sidebar-nav slimscrollsidebar">
-            <div class="sidebar-head">
-                <h3><span class="fa-fw open-close"><i class="ti-close ti-menu"></i></span> <span class="hide-menu">Navigation</span></h3>
-            </div>
-            <ul class="nav" id="side-menu">
-                <li style="padding: 70px 0 0;">
-                    <a href="#" class="waves-effect"><i class="fa fa-shopping-bag fa-fw" aria-hidden="true"></i>Sports Tennis</a>
-                </li>
-                <li>
-                    <a href="#" class="waves-effect"><i class="fa fa-shopping-bag fa-fw" aria-hidden="true"></i>Mountain Bicycles</a>
-                </li>
-                <li>
-                    <a href="#" class="waves-effect"><i class="fa fa-shopping-bag fa-fw" aria-hidden="true"></i>Tents</a>
-                </li>
-            </ul>
-        </div>
+    {{> nav }}
+    {{> leftsidebar }}
 
-    </div>
-    <!-- ============================================================== -->
-    <!-- End Left Sidebar -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- Page Content -->
-    <!-- ============================================================== -->
     <div id="page-wrapper">
         <div class="container-fluid">
-            <div class="row bg-title">
-                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                    <h4 class="page-title">Products</h4> </div>
-                <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
-                    <button class="btn btn-danger pull-right m-l-20 " data-toggle="modal" data-target="#modal-cart">
-                        <i class="fa fa-cart-plus fa-fw"></i> 0 - See products
-                    </button>
-                    <ol class="breadcrumb">
-                        <li><a href="#">Their products</a></li>
-                    </ol>
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
-            <!-- /.row -->
-            <!-- ============================================================== -->
-            <!-- Different data widgets -->
-            <!-- ============================================================== -->
-            <!-- .row -->
+
+            {{> theirproducts }}
+
             <div class="row">
                 <div class="col-lg-4 col-sm-6 col-xs-12">
                     <div class="white-box analytics-info">
@@ -136,123 +38,11 @@
                     </div>
                 </div>
             </div>
-            <!--/.row -->
-        </div>
-    </div>
-    <!-- ============================================================== -->
-    <!-- End Page Content -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- Modal Content -->
-    <!-- ============================================================== -->
-    <div class="modal fade" id="modal-detail" role="dialog">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Sport Tennis</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <img src="assets/img/products/tennis.jpeg">
-                        </div>
-                        <div class="col-lg-6">
-                            <p>
-                                <label>Provider:</label> Nike
-                            </p>
-                            <p>
-                                <label>Price:</label> $12.000
-                            </p>
-                            <p>
-                                <label>Rankin:</label>
-                                <i class="fa fa-star warning-color"></i>
-                                <i class="fa fa-star warning-color"></i>
-                                <i class="fa fa-star warning-color"></i>
-                                <i class="fa fa-star warning-color"></i>
-                                <i class="fa fa-star warning-color"></i>
-                            </p>
-                            <p>
-                                <label>Description:</label>
-                                Tenis Running Hombre Lite Racer Rebornas.
-                            </p>
-                            <div class="row">
-                                <div class="col-lg-4">
-                                    <input type="number" min="0" class="form-control" value="0">
-                                </div>
-                                <div class="col-lg-8">
-                                    <button type="button" class="btn btn-danger">
-                                        <i class="fa fa-cart-plus fa-fw"></i> Add to cart
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div>
         </div>
     </div>
 
-    <div class="modal fade" id="modal-cart" role="dialog">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Their productsr</h4>
-                </div>
-                <div class="modal-body">
-                    <table class="table table-striped" id="table-to-do">
-                        <tbody>
-                        <tr>
-                            <td>Tenis Running Hombre Lite Racer Rebornas</td>
-                            <td width="10%" align="center">1</td>
-                            <td width="10%" align="center">$12,000</td>
-                            <td align="center" width="5%">
-                                <button class="btn btn-danger" onclick="">Delete</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="right"><b>TOTAL:</b></td>
-                            <td width="10%" align="center">12</td>
-                            <td width="10%" align="center">$12,000</td>
-                            <td align="center" width="5%">
-                                &nbsp;
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- ============================================================== -->
-    <!-- End Modal Content -->
-    <!-- ============================================================== -->
+    {{> modals }}
 </div>
-<!-- ============================================================== -->
-<!-- End Wrapper -->
-<!-- ============================================================== -->
-<!-- ============================================================== -->
-<!-- All Jquery -->
-<!-- ============================================================== -->
-<!-- jQuery -->
-<script src="assets/ample-admin-theme/plugins/bower_components/jquery/dist/jquery.min.js"></script>
-<!-- Bootstrap Core JavaScript -->
-<script src="assets/ample-admin-theme/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- Menu Plugin JavaScript -->
-<script src="assets/ample-admin-theme/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
-<!--slimscroll JavaScript -->
-<script src="assets/ample-admin-theme/js/jquery.slimscroll.js"></script>
-<!--Wave Effects -->
-<script src="assets/ample-admin-theme/js/waves.js"></script>
-<!-- Custom Theme JavaScript -->
-<script src="assets/ample-admin-theme/js/custom.min.js"></script>
-</body>
 
-</html>
+{{> scriptsadmin }}
+{{> footer }}
