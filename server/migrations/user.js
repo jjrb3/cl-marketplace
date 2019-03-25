@@ -9,8 +9,6 @@ let migrationUser = () => {
             console.log('Error deleting users');
         }
 
-        console.log('Deleted');
-
         seed(transactions());
     });
 };
@@ -43,10 +41,10 @@ let seed = (transactions) => {
             if (err) {
                 console.log('Error adding user', transaction);
             }
-
-            console.log('Added users', transaction);
         });
     }
+
+    console.log('Added users');
 };
 
 
