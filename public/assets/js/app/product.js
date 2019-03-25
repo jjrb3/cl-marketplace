@@ -82,7 +82,7 @@ Api.Product = {
                         </h3>
                         <p>
                             ${ data.description }<br>
-                            <a href="#" data-toggle="modal" data-target="#modal-detail">See more</a>
+                            <a onclick="Api.Product.details('${ data._id }')" style="cursor: pointer;">See more</a>
                         </p>
                         <div class="row">
                             <div class="col-lg-6">
@@ -96,6 +96,48 @@ Api.Product = {
                         </div>
                     </div>
                 </div>`;
+    },
+
+    details: function(idProduct, category) {
+
+        $.ajax({
+            url: `${ this.uri }/${ idProduct }`,
+            type: 'get',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Authorization': localStorage.getItem('auth')
+            },
+            dataType: 'json',
+            beforeSend: function(){
+                // Null
+            },
+            success: function (json) {
+
+                if (json.success && json.quantity === 1) {
+
+                    var rankin = '';
+
+                    $('#pd-title').html(json.product.provider);
+                    $('#pd-provider').html(json.product.provider);
+                    $('#pd-price').html(Api.Product.moneyFormat(json.product.price));
+                    $('#pd-description').html(json.product.description);
+                    $('#pd-img').attr('src',`assets/img/products/${ json.product.img }`);
+
+                    for (var i = 0; i < parseInt(json.product.rankin); i++) {
+                        rankin += '<i class="fa fa-star warning-color"></i>';
+                    }
+
+                    $('#pd-rankin').html(rankin);
+
+                    $('#modal-detail').modal({
+                        show: 'false'
+                    });
+                }
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                console.log(XMLHttpRequest.responseJSON.err.message)
+            }
+        });
     },
 
     moneyFormat: function(numero) {

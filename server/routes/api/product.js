@@ -45,12 +45,10 @@ app.get('/api/product/:id', verifyToken, (req, res) => {
                 });
             }
 
-            Product.count({}, (err, count) => {
-                res.json({
-                    success: true,
-                    quantity: count,
-                    products: data
-                });
+            res.json({
+                success: true,
+                product: data.length === 1 ? data[0] : {},
+                quantity: data.length
             });
         });
 });

@@ -3,42 +3,28 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Sport Tennis</h4>
+                <h4 class="modal-title" id="pd-title">Sport Tennis</h4>
             </div>
             <div class="modal-body">
                 <div class="row">
                     <div class="col-lg-6">
-                        <img src="assets/img/products/tennis.jpeg">
+                        <img id="pd-img" src="assets/img/products/tennis.jpeg">
                     </div>
                     <div class="col-lg-6">
                         <p>
-                            <label>Provider:</label> Nike
+                            <label>Provider:</label> <span id="pd-provider"></span>
                         </p>
                         <p>
-                            <label>Price:</label> $12.000
+                            <label>Price:</label> <span id="pd-price"></span>
                         </p>
                         <p>
                             <label>Rankin:</label>
-                            <i class="fa fa-star warning-color"></i>
-                            <i class="fa fa-star warning-color"></i>
-                            <i class="fa fa-star warning-color"></i>
-                            <i class="fa fa-star warning-color"></i>
-                            <i class="fa fa-star warning-color"></i>
+                            <span id="pd-rankin"></span>
                         </p>
                         <p>
                             <label>Description:</label>
-                            Tenis Running Hombre Lite Racer Rebornas.
+                            <span id="pd-description"></span>
                         </p>
-                        <div class="row">
-                            <div class="col-lg-4">
-                                <input type="number" min="0" class="form-control" value="0">
-                            </div>
-                            <div class="col-lg-8">
-                                <button type="button" class="btn btn-danger">
-                                    <i class="fa fa-cart-plus fa-fw"></i> Add to cart
-                                </button>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
