@@ -46,8 +46,10 @@
 
 {{> scriptsadmin }}
 
+<script src="assets/js/app/category.js"></script>
 <script>
     Api.securityLogin();
     Api.loadData();
+    Api.Category.loadDataLeftSideBar();
 </script>
 {{> footer }}
