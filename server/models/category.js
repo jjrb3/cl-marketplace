@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 let Schema = mongoose.Schema;
 
 
-let statusSchema = new Schema({
+let collectionSchema = new Schema({
     name: {
         type: String,
         required: [true, 'The name is necessary']
@@ -11,4 +11,4 @@ let statusSchema = new Schema({
 });
 
 
-module.exports = mongoose.model('status', statusSchema);
+module.exports = mongoose.model('category', collectionSchema);
