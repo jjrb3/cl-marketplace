@@ -31,14 +31,14 @@ mongoose: ^5.4.19,
 mongooseunique-validator": ^2.0.2
 ```
 
-# Database
-
-For this project use MongoDB as a database NoSQL.
-
-Default port: 27017
-
 # Theme
 
 Ample Admin is a clean, simple and minimal free HTML5 admin dashboard template. It has an attractive and fresh design with full responsiveness based on Bootstrap framework. Intuitive codes with LESS based CSS inside. Top navigation bar with search box also included with it.
 
 https://themewagon.com/themes/free-html5-admin-dashboard-template-ample-admin/
+
+# Database
+
+For this project use MongoDB as a database NoSQL.
+
+Default port: 27017
