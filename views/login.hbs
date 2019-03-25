@@ -1,0 +1,22 @@
+{{> head }}
+
+<div class="wrapper">
+    <form class="form-signin">
+        <h2 class="form-signin-heading">Please login</h2>
+        <input type="text" class="form-control" id="email" placeholder="Email Address" required="" autofocus="" />
+        <input type="password" class="form-control" id="password" placeholder="Password" required=""/>
+        <br>
+        <button class="btn btn-lg btn-primary btn-block" type="button" onclick="Api.Login.login()">Login</button>
+        <br>
+        <div id="message"></div>
+    </form>
+</div>
+
+{{> scripts }}
+
+<script src="assets/js/app/login.js"></script>
+<script>
+    Api.ifIsLogin();
+</script>
+
+{{> footer }}
