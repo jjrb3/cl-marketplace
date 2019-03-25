@@ -4,43 +4,69 @@ Api.Product = {
     productList: null,
     productByCategoryList: null,
 
-    loadDataLeftSideBar: function() {
+    filterAllProducts: function(description) {
+
         $.ajax({
             url: this.uri,
             type: 'get',
-            data: {},
+            data: {description : description},
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
                 'Authorization': localStorage.getItem('auth')
             },
             dataType: 'json',
             beforeSend: function(){
-                $('#side-menu').html('<img src="assets/img/loading.gif" width="50" height="50">');
+                $('#product-list').html('<img src="assets/img/loading.gif" width="50" height="50">');
             },
             success: function (json) {
 
-                $('#side-menu').html('');
+                $('#product-list').html('');
                 
                 if (json.success && json.quantity > 0) {
 
-                    var menu = '',
-                        resize = 'style="padding: 70px 0 0;"';
+                    for (let i in json.products) {
 
-                    for (let i in json.categories) {
-
-                        menu += `<li ${ parseInt(i) === 0 ? resize : '' }>` +
-                            `<a href="#" class="waves-effect" onclick="Api.Product.searchByCategory('${ json.categories[i]._id }')">` +
-                                `<i class="fa fa-shopping-bag fa-fw" aria-hidden="true"></i>${ json.categories[i].name }</a>` +
-                            '</li>';
+                        $('#product-list').append(Api.Product.container(json.products[i]));
                     }
-
-
-                    $('#side-menu').html(menu);
                 }
             },
             error: function(XMLHttpRequest, textStatus, errorThrown) {
                 console.log(XMLHttpRequest.responseJSON.err.message)
             }
         });
-    }
+    },
+
+
+    container: function(data) {
+
+        return `<div class="col-lg-4 col-sm-6 col-xs-12">
+                    <div class="white-box analytics-info">
+                        <h3 class="box-title">${ data.provider }</h3>
+                        <img src="assets/img/products/${ data.img }">
+                        <br><br>
+                        <h3>
+                            <span class="text-purple">${ Api.Product.moneyFormat(data.price) }</span>
+                        </h3>
+                        <p>
+                            ${ data.description }<br>
+                            <a href="#" data-toggle="modal" data-target="#modal-detail">See more</a>
+                        </p>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <input type="number" min="0" class="form-control" value="0">
+                            </div>
+                            <div class="col-lg-6">
+                                <button type="button" class="btn btn-danger">
+                                    <i class="fa fa-cart-plus fa-fw"></i> Add to cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>`;
+    },
+
+    moneyFormat: function(numero) {
+
+        return '$' + numero.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    },
 };

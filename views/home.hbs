@@ -12,31 +12,7 @@
 
             {{> theirproducts }}
 
-            <div class="row">
-                <div class="col-lg-4 col-sm-6 col-xs-12">
-                    <div class="white-box analytics-info">
-                        <h3 class="box-title">Sport Tennis</h3>
-                        <img src="assets/img/products/tennis.jpeg">
-                        <br><br>
-                        <h3>
-                            <span class="text-purple">$12.869</span>
-                        </h3>
-                        <p>
-                            Tenis Running Hombre Lite Racer Rebornas...
-                            <a href="#" data-toggle="modal" data-target="#modal-detail">See more</a>
-                        </p>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <input type="number" min="0" class="form-control" value="0">
-                            </div>
-                            <div class="col-lg-6">
-                                <button type="button" class="btn btn-danger">
-                                    <i class="fa fa-cart-plus fa-fw"></i> Add to cart
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="row" id="product-list">
             </div>
         </div>
     </div>
@@ -47,9 +23,11 @@
 {{> scriptsadmin }}
 
 <script src="assets/js/app/category.js"></script>
+<script src="assets/js/app/product.js"></script>
 <script>
     Api.securityLogin();
     Api.loadData();
     Api.Category.loadDataLeftSideBar();
+    Api.Product.filterAllProducts();
 </script>
 {{> footer }}

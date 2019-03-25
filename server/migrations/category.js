@@ -83,14 +83,14 @@ let transactions = () => {
                     provider: 'MOUNTAIN GEAR',
                     price: 849990,
                     rankin: 5,
-                    description: 'Mountain bike 27.5 "vesubio 27.5 v18',
+                    description: 'Combo for 2 people',
                     img: 'tent-1.jpeg'
                 },
                 {
                     provider: 'NTK',
                     price: 849990,
                     rankin: 4,
-                    description: 'Mountain bike 27.5 "vesubio 27.5 v18',
+                    description: 'Combo for 2 people',
                     img: 'tent-2.jpeg'
                 },
             ]
