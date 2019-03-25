@@ -96,9 +96,9 @@
                 <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                     <h4 class="page-title">Products</h4> </div>
                 <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
-                    <a href="#" target="_blank" class="btn btn-danger pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light">
+                    <button class="btn btn-danger pull-right m-l-20 " data-toggle="modal" data-target="#modal-cart">
                         <i class="fa fa-cart-plus fa-fw"></i> 0 - See products
-                    </a>
+                    </button>
                     <ol class="breadcrumb">
                         <li><a href="#">Their products</a></li>
                     </ol>
@@ -204,7 +204,26 @@
                     <h4 class="modal-title">Their productsr</h4>
                 </div>
                 <div class="modal-body">
-                    <p>This is a large modal.</p>
+                    <table class="table table-striped" id="table-to-do">
+                        <tbody>
+                        <tr>
+                            <td>Tenis Running Hombre Lite Racer Rebornas</td>
+                            <td width="10%" align="center">1</td>
+                            <td width="10%" align="center">$12,000</td>
+                            <td align="center" width="5%">
+                                <button class="btn btn-danger" onclick="">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right"><b>TOTAL:</b></td>
+                            <td width="10%" align="center">12</td>
+                            <td width="10%" align="center">$12,000</td>
+                            <td align="center" width="5%">
+                                &nbsp;
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
