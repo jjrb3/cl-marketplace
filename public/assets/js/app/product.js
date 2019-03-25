@@ -1,6 +1,7 @@
 
 Api.Product = {
     uri: `${ Api.apiServer}/product`,
+    uriCategory: `${ Api.apiServer}/product-by-category`,
     productList: null,
     productByCategoryList: null,
 
@@ -22,6 +23,38 @@ Api.Product = {
 
                 $('#product-list').html('');
                 
+                if (json.success && json.quantity > 0) {
+
+                    for (let i in json.products) {
+
+                        $('#product-list').append(Api.Product.container(json.products[i]));
+                    }
+                }
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                console.log(XMLHttpRequest.responseJSON.err.message)
+            }
+        });
+    },
+
+    searchByCategory: function(idCategory) {
+
+        $.ajax({
+            url: this.uriCategory,
+            type: 'get',
+            data: {category : idCategory},
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Authorization': localStorage.getItem('auth')
+            },
+            dataType: 'json',
+            beforeSend: function(){
+                $('#product-list').html('<img src="assets/img/loading.gif" width="50" height="50">');
+            },
+            success: function (json) {
+
+                $('#product-list').html('');
+
                 if (json.success && json.quantity > 0) {
 
                     for (let i in json.products) {
