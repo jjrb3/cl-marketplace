@@ -1,32 +1,31 @@
 
 const express = require('express');
 
-const Status = require('../../models/status');
+const Category = require('../../models/category');
 
 const { verifyToken } = require('../../middlewares/authentication');
 
 const app = express();
 
 
+app.get('/api/category', verifyToken, (req, res) => {
 
-app.get('/api/status', verifyToken, (req, res) => {
-
-    Status.find({}, 'name')
-        .exec((err, result) => {
+    Category.find({ })
+        .sort({ name: 1 })
+        .exec((err, data) => {
 
             if (err) {
-                return res.status(500).json({
+                return res.status(400).json({
                     success: false,
                     err
                 });
             }
 
-            Status.count({}, (err, count) => {
-
-                return res.json({
+            Category.count({}, (err, count) => {
+                res.json({
                     success: true,
                     quantity: count,
-                    status: result
+                    categories: data
                 });
             });
         });
