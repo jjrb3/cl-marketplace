@@ -25,10 +25,13 @@ hbs.registerPartials(__dirname + '/../views/partials');
 app.set('view engine','hbs');
 
 
+// Routes
 app.use(require('./routes/api'));
 app.use(require('./routes/web'));
 
 
+
+// Connect to MongoDB
 mongoose.connect(process.env.URLDB, (err) => {
 
     if (err) throw error;
@@ -37,6 +40,7 @@ mongoose.connect(process.env.URLDB, (err) => {
 });
 
 
+// Listen port
 app.listen(process.env.PORT, () => {
     console.log('Listen port: ', process.env.PORT);
 });
