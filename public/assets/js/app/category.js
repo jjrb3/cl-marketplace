@@ -3,6 +3,10 @@ Api.Category = {
     uri: `${ Api.apiServer}/category`,
     statusList: null,
 
+
+    /**
+     * Load left sidebar info "Categories"
+     */
     loadDataLeftSideBar: function() {
         $.ajax({
             url: this.uri,

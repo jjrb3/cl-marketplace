@@ -2,6 +2,10 @@
 Api.Cart = {
     cart: [],
 
+
+    /**
+     * Load local storage cart data
+     */
     loadData: function() {
 
         if (!(localStorage.getItem("cart") === null) && localStorage.getItem("cart") !== '{"data":[]}') {
@@ -15,6 +19,13 @@ Api.Cart = {
         this.updateButtonSeeProducts();
     },
 
+
+    /**
+     * Add products to cart
+     * @param {number} id
+     * @param {string} description
+     * @param {number} price
+     */
     addCart: function(id, description, price) {
 
         let container = `#quantity-${ id }`;
@@ -44,6 +55,10 @@ Api.Cart = {
         this.saveLocalStorage();
     },
 
+
+    /**
+     * Save cart into local storage
+     */
     saveLocalStorage: function() {
 
         var dataCart = [];
@@ -56,6 +71,10 @@ Api.Cart = {
         localStorage.setItem('cart', JSON.stringify(dataCart));
     },
 
+
+    /**
+     * Update quantity and enable or disable button
+     */
     updateButtonSeeProducts: function() {
 
         var quantity = 0;
@@ -74,6 +93,10 @@ Api.Cart = {
         $('#bsp-quantity').text(quantity);
     },
 
+
+    /**
+     * Show cart modal
+     */
     showCart: function() {
 
         this.createTableCart();
@@ -83,6 +106,10 @@ Api.Cart = {
         });
     },
 
+
+    /**
+     * Fill the products cart grid
+     */
     createTableCart: function() {
 
         let tbody = $('#table-cart').find('tbody');
@@ -127,6 +154,11 @@ Api.Cart = {
         tbody.html(table);
     },
 
+
+    /**
+     * Delete product from the grid
+     * @param {number} idProduct
+     */
     deleteProduct: function(idProduct) {
 
         var newCart = [];

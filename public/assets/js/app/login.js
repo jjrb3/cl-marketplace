@@ -2,6 +2,10 @@
 Api.Login = {
     uri: `${ Api.apiServer}/login`,
 
+
+    /**
+     * Login
+     */
     login: function() {
 
         let params = this.verifyForm();
@@ -34,6 +38,11 @@ Api.Login = {
         }
     },
 
+
+    /**
+     * Check de login parameters
+     * @return {JSON}
+     */
     verifyForm: function() {
 
         var user = $('#email').val().trim();

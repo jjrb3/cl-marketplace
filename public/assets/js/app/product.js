@@ -5,6 +5,11 @@ Api.Product = {
     productList: null,
     productByCategoryList: null,
 
+
+    /**
+     * Filter all productos by description
+     * @param {string} description
+     */
     filterAllProducts: function(description) {
 
         $.ajax({
@@ -37,6 +42,11 @@ Api.Product = {
         });
     },
 
+
+    /**
+     * Search products by category
+     * @param {number} idCategory
+     */
     searchByCategory: function(idCategory) {
 
         $.ajax({
@@ -70,6 +80,11 @@ Api.Product = {
     },
 
 
+    /**
+     * HTML products design
+     * @param {JSON} data
+     * @return {string}
+     */
     container: function(data) {
 
         return `<div class="col-lg-4 col-sm-6 col-xs-12">
@@ -100,7 +115,12 @@ Api.Product = {
                 </div>`;
     },
 
-    details: function(idProduct, category) {
+
+    /**
+     * Product detail
+     * @param idProduct
+     */
+    details: function(idProduct) {
 
         $.ajax({
             url: `${ this.uri }/${ idProduct }`,
