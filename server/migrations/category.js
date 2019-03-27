@@ -1,9 +1,13 @@
 
+// Models
 const Category = require('../models/category');
 
 const { migrationProduct } = require('./product');
 
 
+/**
+ * Migration of category
+ */
 let migrationCategory = () => {
     Category.remove({}, (err) => {
         if (err) {
@@ -15,6 +19,10 @@ let migrationCategory = () => {
 };
 
 
+/**
+ * Transactions of category and products
+ * @return {JSON}
+ */
 let transactions = () => {
     return [
         {
@@ -99,6 +107,10 @@ let transactions = () => {
 };
 
 
+/**
+ * Seed of category
+ * @param {Object} transactions
+ */
 let seed = (transactions) => {
 
     for (let transaction of transactions) {

@@ -1,8 +1,13 @@
 
+// Model
 const User = require('../models/user');
+
 const bcrypt = require('bcrypt');
 
 
+/**
+ * Migration of user
+ */
 let migrationUser = () => {
     User.remove({}, (err) => {
         if (err) {
@@ -14,6 +19,10 @@ let migrationUser = () => {
 };
 
 
+/**
+ * Transactions of user
+ * @return {JSON}
+ */
 let transactions = () => {
     return [
         {
@@ -30,6 +39,10 @@ let transactions = () => {
 };
 
 
+/**
+ * Seed of user
+ * @param {Object} transactions
+ */
 let seed = (transactions) => {
 
     for (let transaction of transactions) {

@@ -1,7 +1,13 @@
 
+// Model
 const Product = require('../models/product');
 
 
+/**
+ * Migration of product
+ * @param {Object} idCategory
+ * @param {Object} transactions
+ */
 let migrationProduct = (idCategory, transactions) => {
     Product.remove({}, (err) => {
         if (err) {
@@ -13,6 +19,11 @@ let migrationProduct = (idCategory, transactions) => {
 };
 
 
+/**
+ * Seed of product
+ * @param {Object} idCategory
+ * @param {Object} transactions
+ */
 let seed = (idCategory, transactions) => {
 
     for (let transaction of transactions) {
