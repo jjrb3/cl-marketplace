@@ -7,7 +7,12 @@ const { verifyToken } = require('../../middlewares/authentication');
 
 const app = express();
 
-
+/**
+ * Route - GET: api/category
+ * @param {Object} req
+ * @param {Object} res
+ * @return {JSON}
+ */
 app.get('/api/category', verifyToken, (req, res) => {
 
     Category.find({ })

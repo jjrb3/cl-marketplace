@@ -9,6 +9,12 @@ const { verifyToken } = require('../../middlewares/authentication');
 const app = express();
 
 
+/**
+ * Route - GET: api/user
+ * @param {Object} req
+ * @param {Object} res
+ * @return {JSON}
+ */
 app.get('/api/user', verifyToken, (req, res) => {
 
     let from = (req.query.from || 0),
@@ -27,6 +33,7 @@ app.get('/api/user', verifyToken, (req, res) => {
                 });
             }
 
+            // Quantity users
             User.count({ status: true }, (err, count) => {
                 res.json({
                     success: true,
@@ -39,6 +46,12 @@ app.get('/api/user', verifyToken, (req, res) => {
 });
 
 
+/**
+ * Route - POST: api/user
+ * @param {Object} req
+ * @param {Object} res
+ * @return {JSON}
+ */
 app.post('/api/user', (req, res) => {
 
     let body = req.body;
@@ -67,6 +80,12 @@ app.post('/api/user', (req, res) => {
 });
 
 
+/**
+ * Route - PUT: api/user/:id
+ * @param {Object} req
+ * @param {Object} res
+ * @return {JSON}
+ */
 app.put('/api/user/:id', verifyToken, (req, res) => {
 
     let id = req.params.id;
@@ -89,6 +108,12 @@ app.put('/api/user/:id', verifyToken, (req, res) => {
 });
 
 
+/**
+ * Route - DELETE: api/user/:id
+ * @param {Object} req
+ * @param {Object} res
+ * @return {JSON}
+ */
 app.delete('/api/user/:id', verifyToken, (req, res) => {
 
     let id = req.params.id;

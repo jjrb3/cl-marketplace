@@ -4,12 +4,19 @@ const express = require('express');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
+// Models
 const User = require('../../models/user');
 
 const app = express();
 
 
 
+/**
+ * Route - POST: api/login
+ * @param {Object} req
+ * @param {Object} res
+ * @return {JSON}
+ */
 app.post('/api/login', (req, res) => {
 
     let body = req.body;
@@ -23,6 +30,7 @@ app.post('/api/login', (req, res) => {
             });
         }
 
+        // If exists user
         if (!userDB) {
             return res.status(400).json({
                 success: false,
@@ -32,6 +40,7 @@ app.post('/api/login', (req, res) => {
             });
         }
 
+        // If password is equals
         if (!bcrypt.compareSync(body.password, userDB.password)) {
             return res.status(400).json({
                 success: false,
@@ -42,6 +51,7 @@ app.post('/api/login', (req, res) => {
         }
 
 
+        // Generate token
         let token = jwt.sign({
             dataUser: userDB
         }, process.env.SEED, {expiresIn: process.env.EXPIRATION_TOKEN});

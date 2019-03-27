@@ -1,6 +1,7 @@
 
 const express = require('express');
 
+// Models
 const Product = require('../../models/product');
 
 const { verifyToken } = require('../../middlewares/authentication');
@@ -8,6 +9,12 @@ const { verifyToken } = require('../../middlewares/authentication');
 const app = express();
 
 
+/**
+ * Route - GET: api/product
+ * @param {Object} req
+ * @param {Object} res
+ * @return {JSON}
+ */
 app.get('/api/product', verifyToken, (req, res) => {
 
     Product.find({ description: new RegExp(req.query.description, 'i') })
@@ -32,6 +39,12 @@ app.get('/api/product', verifyToken, (req, res) => {
 });
 
 
+/**
+ * Route - GET: api/product/:id
+ * @param {Object} req
+ * @param {Object} res
+ * @return {JSON}
+ */
 app.get('/api/product/:id', verifyToken, (req, res) => {
 
     Product.find({ _id: req.params.id})
@@ -54,6 +67,12 @@ app.get('/api/product/:id', verifyToken, (req, res) => {
 });
 
 
+/**
+ * Route - GET: api/product-by.category
+ * @param {Object} req
+ * @param {Object} res
+ * @return {JSON}
+ */
 app.get('/api/product-by-category', verifyToken, (req, res) => {
 
     Product.find({ category: req.query.category })
