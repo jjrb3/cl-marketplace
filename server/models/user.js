@@ -6,6 +6,9 @@ const uniqueValidator = require('mongoose-unique-validator');
 let Schema = mongoose.Schema;
 
 
+/**
+ * Config schema user
+ */
 let userSchema = new Schema({
     name: {
         type: String,
@@ -27,7 +30,10 @@ let userSchema = new Schema({
 });
 
 
-// No show password
+/**
+ * No show password
+ * @return {Object} user object
+ */
 userSchema.methods.toJSON = function() {
 
     let user = this,

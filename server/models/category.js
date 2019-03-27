@@ -2,7 +2,9 @@ const mongoose = require('mongoose');
 
 let Schema = mongoose.Schema;
 
-
+/**
+ * Config schema category
+ */
 let collectionSchema = new Schema({
     name: {
         type: String,
